@@ -1,10 +1,10 @@
 export default class Key {
-  constructor({code, base, alter=""}) {
-    this.code = code
-    this.base = base
-    this.alter = alter
+  constructor(keyObj) {
+    this.code = keyObj['keyCode']
+    this.base = keyObj['base']
+    this.alter = keyObj['alter'] || ''
     this.isService = this.checkIsService(this.base)
-    this.isNavigation = this.checkIsNavigation(this.base)
+    this.isNavigation = this.checkIsNavigation(this.code)
   }
 
   checkIsService(base) {

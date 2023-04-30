@@ -22,3 +22,9 @@
   padding: 10px 16px;
   caret-color: blue;
 }
+
+.keyboard,
+.keyboard__row,
+.key {
+  user-select: none;
+}

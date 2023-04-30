@@ -1,4 +1,5 @@
 import Key from "./Key.js"
+import layout from "./layouts/layout.js"
 
 const arrowKeys = ['ArrowRight', 'ArrowLeft', 'ArrowUp', 'ArrowDown']
 
@@ -12,6 +13,7 @@ window.addEventListener('load', () => {
   const textareEl = createTextareaEl()
   document.body.insertAdjacentElement('afterbegin', textareEl)
   listenInput()
+  document.querySelector('#textarea').focus()
 })
 
 
@@ -50,6 +52,7 @@ function listenInput() {
 function printSymbol(keyChar) {
   /* console.log(keyChar) */
   const textareaEl = document.querySelector('#textarea')
+  textareaEl.focus()
   // get currentPosition
   const curPos = textareaEl.selectionStart
   const selectionEnd = textareaEl.selectionEnd
@@ -98,98 +101,63 @@ function printSymbol(keyChar) {
   // inssert into Current Position
   textareaEl.value = `${beforeCursorInput}${char}${afterCursorInput}`
   textareaEl.setSelectionRange(curPos + 1, curPos + 1)
-
+  
 }
-
-const row = [
-  {
-    code: 1,
-    base: 'Tab',
-    alter: 'Tab'
-  },
-  {
-    code: 2,
-    base: 'q',
-    alter: 'Q'
-  },
-  {
-    code: 3,
-    base: 'w',
-    alter: 'W'
-  },
-  {
-    code: 4,
-    base: 'e',
-    alter: 'E'
-  },
-  {
-    code: 5,
-    base: 'r',
-    alter: 'R'
-  },
-  {
-    code: 6,
-    base: 't',
-    alter: 'T'
-  },
-  {
-    code: 7,
-    base: 'y',
-    alter: 'Y'
-  },
-  {
-    code: 8,
-    base: 'u',
-    alter: 'U'
-  },
-  {
-    code: 9,
-    base: 'i',
-    alter: 'I'
-  },
-  {
-    code: 10,
-    base: 'o',
-    alter: 'O'
-  },
-  {
-    code: 11,
-    base: 'p',
-    alter: 'P'
-  },
-  {
-    code: 12,
-    base: '[',
-    alter: '{'
-  },
-  {
-    code: 13,
-    base: ']',
-    alter: '}'
-  },
-  {
-    code: 14,
-    base: '\\',
-    alter: '|'
-  }
-]
-
 
 class Keyboard {
   constructor(lang) {
     this.lang = lang
     this.isCapsed = false
-    this.layout = 'Tab q w e r t y u i o p [ ] \\'
+    this.layout = layout
+    this.currentKeyboard = this.initKeyboardEl()
+  }
+
+  initKeyboardEl() {
+    /* let currentLayout =  */
+
+    let keyboardRowsHtml = layout.foundation.map((row) => {
+      const rowContentHtml = row.map((code) => {
+        const currentLang = this.layout.langs.find(obj => obj.id === this.lang)
+        const obj = currentLang.layout.find(obj => obj.keyCode === code)
+        const keyObj = new Key(obj)
+        return keyObj.render()
+      }).join('')
+      const rowHtml = `<div class="keyboard__row">${rowContentHtml}</div>`
+      return rowHtml
+    })
+
+    return `<div id="keyboard">${keyboardRowsHtml.join('')}</div>`
   }
 
   render() {
-    let rowHtml = row.map((obj) => {
-      const keyObj = new Key(obj)
-      return keyObj.render()
-    })
+    document.body.insertAdjacentHTML('beforeend', this.currentKeyboard)
+    this.listenKeyboardElems()
+  }
 
-    const keyboardHtml = `<div id="keyboard">${rowHtml.join('')}</div>`
-    document.body.insertAdjacentHTML('beforeend', keyboardHtml)
+  listenKeyboardElems() {
+    document.getElementById('keyboard').addEventListener('click', (e) => {
+      console.log(e.target, e.target.classList)
+      if (e.target.classList.contains('key')) {
+        const keyId = e.target.id.split('-')[1]
+        if (keyId === '1000') {
+          console.log('lang changed')
+          if (this.lang === 'en') {
+            this.lang = 'ru'
+          } else {
+            this.lang = 'en'
+          }
+          // TODO: refactor to partial rerender
+          this.currentKeyboard = this.initKeyboardEl()
+          document.getElementById('keyboard').remove()
+          this.render()
+          console.log('rendered', '||', this.lang, '||', this.currentKeyboard)
+          return
+        } else {
+          const char = e.target.textContent
+          printSymbol(char)
+        }
+      }
+    })
   }
 
   switchOnCaps(capsState) {
@@ -222,7 +190,7 @@ class Keyboard {
   }
 }
 
-const keyboard = new Keyboard()
+const keyboard = new Keyboard("ru")
 
 keyboard.render()
 keyboard.listenCaps() 
