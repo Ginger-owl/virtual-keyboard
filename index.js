@@ -116,10 +116,10 @@ class Keyboard {
     /* let currentLayout =  */
 
     let keyboardRowsHtml = layout.foundation.map((row) => {
-      const rowContentHtml = row.map((code) => {
-        const currentLang = this.layout.langs.find(obj => obj.id === this.lang)
-        const obj = currentLang.layout.find(obj => obj.keyCode === code)
-        const keyObj = new Key(obj)
+      const rowContentHtml = row.map((which) => {
+        const currentLang = this.layout.langs.find(obj => obj.name === this.lang)
+        const obj = currentLang.layout[which]
+        const keyObj = new Key(which, obj.base, obj.alter)
         return keyObj.render()
       }).join('')
       const rowHtml = `<div class="keyboard__row">${rowContentHtml}</div>`
@@ -150,7 +150,6 @@ class Keyboard {
           this.currentKeyboard = this.initKeyboardEl()
           document.getElementById('keyboard').remove()
           this.render()
-          console.log('rendered', '||', this.lang, '||', this.currentKeyboard)
           return
         } else {
           const char = e.target.textContent

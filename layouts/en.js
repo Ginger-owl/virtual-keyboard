@@ -1,322 +1,254 @@
-export default [
-  {
-    base: '`',
-    alter: '~',
-    keyCode: '192',
+export default {
+  '192': {
+    'base': '`',
+    'alter': '~',
   },
-  {
-    base: '1',
-    alter: '!',
-    keyCode: '49',
+  '49': {
+    'base': '1',
+    'alter': '!'
   },
-  {
-    base: '2',
-    alter: '@',
-    keyCode: '50',
+  '50': {
+    'base': '2',
+    'alter': '@',
   },
-  {
-    base: '3',
-    alter: '#',
-    keyCode: '51',
+  '51': {
+    'base': '3',
+    'alter': '#',
   },
-  {
-    base: '4',
-    alter: '$',
-    keyCode: '52',
+  '52': {
+    'base': '4',
+    'alter': '$',
   },
-  {
-    base: '5',
-    alter: '%',
-    keyCode: '53',
+  '53': {
+    'base': '5',
+    'alter': '%'
   },
-  {
-    base: '6',
-    alter: '^',
-    keyCode: '54',
+  '54': {
+    'base': '6',
+    'alter': '^'
   },
-  {
-    base: '7',
-    alter: '&',
-    keyCode: '55',
+  '55': {
+    'base': '7',
+    'alter': '&'
   },
-  {
-    base: '8',
-    alter: '*',
-    keyCode: '56',
+  '56': {
+    'base': '8',
+    'alter': '*'
   },
-  {
-    base: '9',
-    alter: '(',
-    keyCode: '57',
+  '57': {
+    'base': '9',
+    'alter': '('
   },
-  {
-    base: '0',
-    alter: ')',
-    keyCode: '48',
+  '48': {
+    'base': '0',
+    'alter': ')'
   },
-  {
-    base: '-',
-    alter: '_',
-    keyCode: '189',
+  '189': {
+    'base': '-',
+    'alter': '_'
   },
-  {
-    base: '=',
-    alter: '+',
-    keyCode: '187',
+  '187': {
+    'base': '=',
+    'alter': '+'
   },
-  {
-    base: 'Backspace',
-    alter: null,
-    keyCode: '8',
+  '8': {
+    'base': 'delete',
+    'alter': 'delete'
   },
- /*  {
-    base: 'Delete',
-    alter: null,
-    keyCode: '46',
-  }, */
-  {
-    base: 'Tab',
-    alter: null,
-    keyCode: '9',
+  '9': {
+    'base': 'tab',
+    'alter': 'tab',
   },
-  {
-    base: 'q',
-    alter: 'Q',
-    keyCode: '81',
+  '81': {
+    'base': 'q',
+    'alter': 'Q',
   },
-  {
-    base: 'w',
-    alter: 'W',
-    keyCode: '87',
+  '87': {
+    'base': 'w',
+    'alter': 'W',
   },
-  {
-    base: 'e',
-    alter: 'E',
-    keyCode: '69',
+  '69': {
+    'base': 'e',
+    'alter': 'E',
   },
-  {
-    base: 'r',
-    alter: 'R',
-    keyCode: '82',
+  '82': {
+    'base': 'r',
+    'alter': 'R',
   },
-  {
-    base: 't',
-    alter: 'T',
-    keyCode: '84',
+  '84': {
+    'base': 't',
+    'alter': 'T',
   },
-  {
-    base: 'y',
-    alter: 'Y',
-    keyCode: '89',
+  '89': {
+    'base': 'y',
+    'alter': 'Y',
   },
-  {
-    base: 'u',
-    alter: 'U',
-    keyCode: '85',
+  '85': {
+    'base': 'u',
+    'alter': 'U',
   },
-  {
-    base: 'i',
-    alter: 'I',
-    keyCode: '73',
+  '73': {
+    'base': 'i',
+    'alter': 'I',
   },
-  {
-    base: 'o',
-    alter: 'O',
-    keyCode: '79',
+  '79': {
+    'base': 'o',
+    'alter': 'O',
   },
-  {
-    base: 'p',
-    alter: 'P',
-    keyCode: '80',
+  '80': {
+    'base': 'p',
+    'alter': 'P',
   },
-  {
-    base: '[',
-    alter: '{',
-    keyCode: '219',
+  '219': {
+    'base': '[',
+    'alter': '{'
   },
-  {
-    base: ']',
-    alter: '}',
-    keyCode: '221',
+  '221': {
+    'base': ']',
+    'alter': '}'
   },
-  {
-    base: '\\',
-    alter: '|',
-    keyCode: '220',
+  '220': {
+    'base': '\\',
+    'alter': '|'
   },
-  {
-    base: 'CapsLock',
-    alter: null,
-    keyCode: '0',
+  '20': {
+    'base': 'caps lock',
+    'alter': 'caps lock',
   },
-  {
-    base: 'a',
-    alter: 'A',
-    keyCode: '65',
+  '65': {
+    'base': 'a',
+    'alter': 'A',
   },
-  {
-    base: 's',
-    alter: 'S',
-    keyCode: '83',
+  '83': {
+    'base': 's',
+    'alter': 'S',
   },
-  {
-    base: 'd',
-    alter: 'D',
-    keyCode: '68',
+  '68': {
+    'base': 'd',
+    'alter': 'D',
   },
-  {
-    base: 'f',
-    alter: 'F',
-    keyCode: '70',
+  '70': {
+    'base': 'f',
+    'alter': 'F',
   },
-  {
-    base: 'g',
-    alter: 'G',
-    keyCode: '71',
+  '71': {
+    'base': 'g',
+    'alter': 'G',
   },
-  {
-    base: 'h',
-    alter: 'H',
-    keyCode: '72',
+  '72': {
+    'base': 'h',
+    'alter': 'H',
   },
-  {
-    base: 'j',
-    alter: 'J',
-    keyCode: '74',
+  '74': {
+    'base': 'j',
+    'alter': 'J',
   },
-  {
-    base: 'k',
-    alter: 'K',
-    keyCode: '75',
+  '75': {
+    'base': 'k',
+    'alter': 'K',
   },
-  {
-    base: 'l',
-    alter: 'L',
-    keyCode: '76',
+  '76': {
+    'base': 'l',
+    'alter': 'L',
   },
-  {
-    base: ';',
-    alter: ':',
-    keyCode: '186',
+  '186': {
+    'base': ';',
+    'alter': ':',
   },
-  {
-    base: "'",
-    alter: '"',
-    keyCode: '222',
+  '222': {
+    'base': "'",
+    'alter': '"',
   },
-  {
-    base: 'Enter',
-    alter: null,
-    keyCode: '13',
+  '13': {
+    'base': 'return',
+    'alter': 'return',
   },
-  {
-    base: 'Shift',
-    alter: null,
-    keyCode: '16',
+  '16': {
+    'base': 'shift',
+    'alter': 'shift',
   },
-  {
-    base: 'z',
-    alter: 'Z',
-    keyCode: '90',
+  '90': {
+    'base': 'z',
+    'alter': 'Z',
   },
-  {
-    base: 'x',
-    alter: 'X',
-    keyCode: '88',
+  '88': {
+    'base': 'x',
+    'alter': 'X',
   },
-  {
-    base: 'c',
-    alter: 'C',
-    keyCode: '67',
+  '67': {
+    'base': 'c',
+    'alter': 'C',
   },
-  {
-    base: 'v',
-    alter: 'V',
-    keyCode: '86',
+  '86': {
+    'base': 'v',
+    'alter': 'V',
   },
-  {
-    base: 'b',
-    alter: 'B',
-    keyCode: '66',
+  '66': {
+    'base': 'b',
+    'alter': 'B',
   },
-  {
-    base: 'n',
-    alter: 'N',
-    keyCode: '78',
+  '78': {
+    'base': 'n',
+    'alter': 'N',
   },
-  {
-    base: 'm',
-    alter: 'M',
-    keyCode: '77',
+  '77': {
+    'base': 'm',
+    'alter': 'M',
   },
-  {
-    base: ',',
-    alter: '<',
-    keyCode: '188',
+  '188': {
+    'base': ',',
+    'alter': '<',
   },
-  {
-    base: '.',
-    alter: '>',
-    keyCode: '190',
+  '190': {
+    'base': '.',
+    'alter': '>',
   },
-  {
-    base: '/',
-    alter: '?',
-    keyCode: '191',
+  '191': {
+    'base': '/',
+    'alter': '?',
   },
-  {
-    base: 'Shift',
-    alter: null,
-    keyCode: '16',
+  '17': {
+    'base': 'control',
+    'alter': 'control',
   },
-  {
-    base: 'Ctrl',
-    alter: null,
-    keyCode: '17',
+  '18': {
+    'base': 'option',
+    'alter': 'option',
   },
-  {
-    base: 'Alt',
-    alter: null,
-    keyCode: '18',
+  '91': {
+    'base': 'command',
+    'alter': 'command',
   },
-  {
-    base: ' ',
-    alter: null,
-    keyCode: '32',
+  '32': {
+    'base': ' ',
+    'alter': ' ',
   },
-  {
-    base: 'Alt',
-    alter: null,
-    keyCode: '225',
+  '93': {
+    'base': 'command',
+    'alter': 'command',
   },
-  {
-    base: 'Ctrl',
-    alter: null,
-    keyCode: '17',
+  '225': {
+    'base': 'option',
+    'alter': 'option',
   },
-  {
-    base: '&larr;',
-    alter: null,
-    keyCode: '37',
+  '37': {
+    'base': '&larr;',
+    'alter': '&larr;',
   },
-  {
-    base: '&uarr;',
-    alter: null,
-    keyCode: '38',
+  '38': {
+    'base': '&uarr;',
+    'alter': '&uarr;',
   },
-  {
-    base: '&darr;',
-    alter: null,
-    keyCode: '40',
+  '40': {
+    'base': '&darr;',
+    'alter': '&darr;',
   },
-  {
-    base: '&rarr;',
-    alter: null,
-    keyCode: '39',
+  '39': {
+    'base': '&rarr;',
+    'alter': '&rarr;',
   },
-  {
-    base: 'fn',
-    alter: null,
-    keyCode: '1000',
-  },
-];
+  '1000': {
+    'base': 'fn',
+    'alter': 'fn',
+  }
+}
