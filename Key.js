@@ -1,14 +1,14 @@
 export default class Key {
-  constructor(keyObj) {
-    this.code = keyObj['keyCode']
-    this.base = keyObj['base']
-    this.alter = keyObj['alter'] || ''
+  constructor(which, base, alter) {
+    this.code = which
+    this.base = base
+    this.alter = alter
     this.isService = this.checkIsService(this.base)
     this.isNavigation = this.checkIsNavigation(this.code)
   }
 
   checkIsService(base) {
-    return (['Shift', 'Meta', 'Control', 'Alt', 'Tab', 'Enter', 'Backspace'].includes(base))
+    return (['shift', 'option', 'control', 'command', 'tab', 'return', 'delete'].includes(base))
   }
 
   checkIsNavigation(code) {
@@ -21,7 +21,7 @@ export default class Key {
     const elClassNames = ['key', serviceBtnClass, arrowBtnClass].join(' ').trim()
     const text = this.base
     return (
-      `<button id="key-${this.code}"class="${elClassNames}" data-base="${this.base}" data-alter="${this.alter}">${text}</button>
+      `<button id='key-${this.code}' class='${elClassNames}' data-base='${this.base}' data-alter='${this.alter}'>${text}</button>
       `
     )
   }
