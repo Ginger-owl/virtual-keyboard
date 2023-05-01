@@ -1,5 +1,6 @@
 import Keyboard from "./Keyboard.js"
 import layout from "./layouts/layout.js"
+import {get} from "./utils/storage.js"
 
 const specialButtons = ["Shift", "shift", "Meta", "option", "Control", "control", "Alt", "command", "Tab", "tab", "Enter", "return", "Backspace", "delete", "CapsLock", "caps lock"]
 
@@ -14,8 +15,11 @@ export const navChars  =  ["ArrowRight", "ArrowLeft", "ArrowUp", "ArrowDown"]
 
 window.addEventListener("load", () => {
   const textareEl = createTextareaEl()
-  textareEl.wrap = 'hard'
+  const titleEl = createTitleEl()
+  const hintEl = createHintEl()
+  document.body.insertAdjacentElement("afterbegin", hintEl)
   document.body.insertAdjacentElement("afterbegin", textareEl)
+  document.body.insertAdjacentElement("afterbegin", titleEl)
   listenInput()
   document.querySelector("#textarea").focus()
 })
@@ -26,6 +30,23 @@ function createTextareaEl() {
   elem.id = "textarea"
   elem.classList = "textarea"
   elem.rows = "16"
+  elem.wrap = 'hard'
+  return elem
+}
+
+function createTitleEl() {
+  const elem = document.createElement("h1")
+  elem.id = "title"
+  elem.classList = "title"
+  elem.textContent = "RSS Virtual Keyboard"
+  return elem
+}
+
+function createHintEl() {
+  const elem = document.createElement("p")
+  elem.id = "hint"
+  elem.classList = "hint"
+  elem.textContent = "Keyboard created based on Mac layouts. Use \"control\" +\"command\" or \"fn\"to choose language"
   return elem
 }
 
@@ -64,9 +85,9 @@ function listenInput() {
       e.preventDefault()
       printSymbol(e.key)
     }
-    if ((e.code == "MetaLeft" || e.code == "MetaRight")&& e.ctrlKey) {
-      keyboard.swapLanguage()
-      keyboard.rerenderKeys()
+    if ((e.code == "MetaLeft" )&& e.ctrlKey) {
+      this.swapLanguage()
+      this.rerenderKeys()
     }
     
    /*  if(lineChars.includes(e.key)) {
@@ -145,7 +166,12 @@ function enableActive(el) {
   el.classList.add('key-active')
 }
 
-const keyboard = new Keyboard(layout)
+function app() {
+  const savedLang = get('lang', 'en')
+  const keyboard = new Keyboard(layout, savedLang)
+  keyboard.render()
+  keyboard.listenCaps() 
+}
 
-keyboard.render()
-keyboard.listenCaps() 
+app()
+
