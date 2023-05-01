@@ -1,5 +1,6 @@
 import Key from "./Key.js"
 import {printSymbol, moveCursor, navChars} from "./index.js"
+import {set, del} from "./utils/storage.js"
 
 export default class Keyboard {
   constructor(layout, lang = "en") {
@@ -26,11 +27,13 @@ export default class Keyboard {
   }
 
   swapLanguage = () => {
+    del("lang")
     if (this.lang === "en") {
       this.lang = "ru"
     } else {
       this.lang = "en"
     }
+    set("lang", this.lang)
   }
 
   switchOnCaps = (capsState) => {
