@@ -1,14 +1,14 @@
-import en from './en.js'
-import ru from './ru.js'
+import en from "./en.js"
+import ru from "./ru.js"
 
 
 const layout = {
   foundation: [
-    ["192", "49", "50", "51", "52", "53", "54", "55", "56", "57", "48", "189", "187", "8"],
-    ["9", "81", "87", "69", "82", "84", "89", "85", "73", "79", "80", "219", "221", "220"],
-    ["20", "65", "83", "68", "70", "71", "72", "74", "75", "76", "186", "222", "13"],
-    ["16", "90", "88", "67", "86", "66", "78", "77", "188", "190", "191", "16"],
-    ["1000", "17", "18", "91", "32", "225", "93", "18", "37", "38", "40", "39"]
+    ["Backquote", "Digit1", "Digit2", "Digit3", "Digit4", "Digit5", "Digit6", "Digit7", "Digit8", "Digit9", "Digit0", "Minus", "Equal", "Backspace"],
+    ["Tab", "KeyQ", "KeyW", "KeyE", "KeyR", "KeyT", "KeyY", "KeyU", "KeyI", "KeyO", "KeyP", "BracketLeft", "BracketRight", "Backslash"],
+    ["CapsLock", "KeyA", "KeyS", "KeyD", "KeyF", "KeyG", "KeyH", "KeyJ", "KeyK", "KeyL", "Semicolon", "Quote", "Enter"],
+    ["ShiftLeft", "KeyZ", "KeyX", "KeyC", "KeyV", "KeyB", "KeyN", "KeyM", "Comma", "Period", "Slash", "ShiftRight"],
+    ["Fn", "ControlLeft", "AltLeft", "MetaLeft", "Space", "MetaRight", "AltRight", "ArrowLeft", "ArrowUp", "ArrowDown", "ArrowRight"]
   ],
   langs: [
     {
