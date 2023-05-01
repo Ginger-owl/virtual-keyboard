@@ -40,7 +40,7 @@ export default class Key {
     const elClassNames = ["key", serviceBtnClass, arrowBtnClass, sizeBtnClass].join(" ").trim()
     const text = this.base
     return (
-      `<button id="key-${this.code}" class="${elClassNames}" data-base="${this.base}" data-alter="${this.alter}">${text}</button>
+      `<button id="key-${this.code}" class="${elClassNames}" data-base="${this.base}" data-alter='${this.alter}'>${text}</button>
       `
     )
   }
