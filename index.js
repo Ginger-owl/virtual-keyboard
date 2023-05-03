@@ -13,14 +13,19 @@ const lineChars  = {
 export const navChars  =  ["ArrowRight", "ArrowLeft", "ArrowUp", "ArrowDown"]
 
 
-window.addEventListener("load", () => {
+window.addEventListener("DOMContentLoaded", () => {
+  console.log('loaded')
   const textareEl = createTextareaEl()
   const titleEl = createTitleEl()
   const hintEl = createHintEl()
   document.body.insertAdjacentElement("afterbegin", hintEl)
   document.body.insertAdjacentElement("afterbegin", textareEl)
   document.body.insertAdjacentElement("afterbegin", titleEl)
-  listenInput()
+  const savedLang = get('lang', 'en')
+  const keyboard = new Keyboard(layout, savedLang)
+  keyboard.render()
+  keyboard.listenCaps() 
+  keyboard.listenInput()
   document.querySelector("#textarea").focus()
 })
 
@@ -55,7 +60,6 @@ export function moveCursor(code) {
   textareaEl.focus()
   
   const curPos = textareaEl.selectionStart
-  console.log(curPos)
   if (code === 'ArrowLeft') {
     textareaEl.setSelectionRange(curPos - 1, curPos - 1)
   } else if (code === 'ArrowUp') {
@@ -66,48 +70,6 @@ export function moveCursor(code) {
     textareaEl.setSelectionRange(curPos + 1, curPos + 1)
   }
   textareaEl.focus()
-}
-
-// listen input from Virtual Keyboard
-function listenInput() {
-  document.querySelector("#textarea").focus()
-  document.addEventListener("keydown", (e) => {
-    console.log(e)
-    // make virtual button active
-    const btn = document.getElementById(`key-${e.code}`)
-    enableActive(btn)
-    const textareaEl = document.querySelector("#textarea")
-
-    const curPos = textareaEl.selectionStart
-    const selectionEnd = textareaEl.selectionEnd
-    console.log(selectionEnd, "|||", selectionEnd === curPos, curPos)
-    if (!(["ShiftLeft", "ShiftRight", "AltLeft", "AltRight", "ControlLeft", "ControlRight", "MetaLeft", "MetaRight"].includes(e.key) ||  e.metaKey ||  navChars.includes(e.key))) {
-      e.preventDefault()
-      printSymbol(e.key)
-    }
-    if ((e.code == "MetaLeft" )&& e.ctrlKey) {
-      this.swapLanguage()
-      this.rerenderKeys()
-    }
-    
-   /*  if(lineChars.includes(e.key)) {
-      e.preventDefault()
-    } */
-    if(navChars.includes(e.code)) {
-      moveCursor(e.key)
-    }
-    if (e.ctrlKey && e.key !== 'Meta') {
-      setInterval(() => {
-        const btn = document.querySelector(`#key-${e.code}`)
-        disableActive(btn)
-      }, 500)
-    }
-    document.querySelector("#textarea").focus()
-  })
-  document.addEventListener("keyup", (e) => {
-    const btn = document.querySelector(`#key-${e.code}`)
-    disableActive(btn)
-  })
 }
 
 // printing Symbols from inputs
@@ -157,21 +119,3 @@ export function printSymbol(keyChar) {
   textareaEl.value = `${beforeCursorInput}${char}${afterCursorInput}`
   textareaEl.setSelectionRange(curPos + char.length, curPos + char.length)
 }
-
-function disableActive(el) {
-  el.classList.remove('key-active')
-}
-
-function enableActive(el) {
-  el.classList.add('key-active')
-}
-
-function app() {
-  const savedLang = get('lang', 'en')
-  const keyboard = new Keyboard(layout, savedLang)
-  keyboard.render()
-  keyboard.listenCaps() 
-}
-
-app()
-

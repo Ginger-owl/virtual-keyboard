@@ -10,7 +10,7 @@ export default class Keyboard {
     this.currentKeyboard = this.initKeyboardEl()
   }
 
-  initKeyboardEl = () => {
+  initKeyboardEl() {
 
     let keyboardRowsHtml = this.layout.foundation.map((row) => {
       const rowContentHtml = row.map((code) => {
@@ -53,7 +53,7 @@ export default class Keyboard {
     this.listenKeyboardElems()
   }
 
-  rerenderKeys = () => {
+  rerenderKeys() {
     const keyboardEl = document.getElementById("keyboard")
     const keys = keyboardEl.querySelectorAll(".key")
     keys.forEach((key) => {
@@ -69,7 +69,54 @@ export default class Keyboard {
     })
   }
 
-  listenKeyboardElems = () => {
+  disableActive(el) {
+    el.classList.remove('key-active')
+  }
+  
+  enableActive(el) {
+    el.classList.add('key-active')
+  }
+
+  // listen input from Virtual Keyboard
+  listenInput() {
+  document.querySelector("#textarea").focus()
+  document.addEventListener("keydown", (e) => {
+    console.log(e)
+    // make virtual button active
+    const btn = document.getElementById(`key-${e.code}`)
+    this.enableActive(btn)
+    /* const textareaEl = document.querySelector("#textarea")
+
+    const curPos = textareaEl.selectionStart
+    const selectionEnd = textareaEl.selectionEnd */
+    if (!(["ShiftLeft", "ShiftRight", "AltLeft", "AltRight", "ControlLeft", "ControlRight", "MetaLeft", "MetaRight"].includes(e.key) ||  e.metaKey ||  navChars.includes(e.key))) {
+      e.preventDefault()
+      printSymbol(e.key)
+    }
+    if ((e.code == "MetaLeft" && e.shiftKey) || (e.code == "ShiftLeft" && e.metaKey)) {
+      this.swapLanguage()
+      this.rerenderKeys()
+      return
+    }
+    
+    if(navChars.includes(e.code)) {
+      moveCursor(e.key)
+    }
+    if (e.ctrlKey && e.key !== 'Meta') {
+      setInterval(() => {
+        const btn = document.querySelector(`#key-${e.code}`)
+        this.disableActive(btn)
+      }, 500)
+    }
+    document.querySelector("#textarea").focus()
+  })
+  document.addEventListener("keyup", (e) => {
+    const btn = document.querySelector(`#key-${e.code}`)
+    this.disableActive(btn)
+  })
+}
+
+  listenKeyboardElems() {
     const keyboard = document.getElementById("keyboard")
     keyboard.addEventListener("click", (e) => {
       if (e.target.classList.contains("key")) {
@@ -112,7 +159,7 @@ export default class Keyboard {
     })
   }
 
-  listenCaps = () => {
+  listenCaps() {
     window.addEventListener("keydown", (e) => {
       if (e.code === "CapsLock") {
         const capsState = e.getModifierState("CapsLock")
