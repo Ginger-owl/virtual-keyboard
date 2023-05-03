@@ -176,7 +176,7 @@ export default class Keyboard {
         e.preventDefault();
         Keyboard.printSymbol(e.key);
       }
-      if ((e.code === 'MetaLeft' && e.shiftKey) || (e.code === 'ShiftLeft' && e.metaKey)) {
+      if ((e.code === 'AltLeft' && e.shiftKey) || (e.code === 'ShiftLeft' && e.altKey)) {
         this.swapLanguage();
         this.rerenderKeys();
         return;
@@ -184,12 +184,6 @@ export default class Keyboard {
 
       if (navChars.includes(e.code)) {
         this.moveCursor(e.key);
-      }
-      if (e.ctrlKey && e.key !== 'Meta') {
-        setInterval(() => {
-          const anotherBtn = document.querySelector(`#key-${e.code}`);
-          Keyboard.disableActive(anotherBtn);
-        }, 500);
       }
       document.querySelector('#textarea').focus();
     });
@@ -246,8 +240,8 @@ export default class Keyboard {
 
   listenCaps() {
     window.addEventListener('keydown', (e) => {
-      if (e.code === 'CapsLock') {
-        const capsState = e.getModifierState('CapsLock');
+      if (e.code === 'CapsLock' || e.which === '20') {
+        const capsState = !this.isCapsed;
         this.switchOnCaps(capsState, true);
       }
       if (e.code === 'ShiftLeft' || e.code === 'ShiftRight') {
@@ -257,8 +251,8 @@ export default class Keyboard {
     });
 
     window.addEventListener('keyup', (e) => {
-      if (e.code === 'CapsLock') {
-        const capsState = e.getModifierState('CapsLock');
+      if (e.code === 'CapsLock' || e.which === '20') {
+        const capsState = !this.isCapsed;
         this.switchOnCaps(capsState, true);
       }
       if (e.code === 'ShiftLeft' || e.code === 'ShiftRight') {
