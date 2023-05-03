@@ -51,7 +51,7 @@ function createHintEl() {
   const elem = document.createElement("p")
   elem.id = "hint"
   elem.classList = "hint"
-  elem.textContent = "Keyboard created based on Mac layouts. Use \"control\" +\"command\" or \"fn\"to choose language"
+  elem.textContent = "Keyboard created based on Mac layouts. Use \"shift\" +\"command\"(Alt for windows) or \"fn\"to choose language"
   return elem
 }
 
