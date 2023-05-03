@@ -46,7 +46,17 @@ export default class Keyboard {
     set('lang', this.lang);
   };
 
-  switchOnCaps = (capsState) => {
+  switchOnCaps = (capsState, isCapsPressed) => {
+    if (isCapsPressed) {
+      const capsBtn = document.getElementById('key-CapsLock');
+      if (capsState) {
+        capsBtn.classList.remove('key-inactive');
+        capsBtn.classList.add('key-active');
+      } else {
+        capsBtn.classList.remove('key-active');
+        capsBtn.classList.add('key-inactive');
+      }
+    }
     const keys = document.getElementById('keyboard').querySelectorAll('.key');
     this.isCapsed = capsState;
     keys.forEach((key) => {
@@ -203,6 +213,9 @@ export default class Keyboard {
         if (keyId === 'Fn') {
           this.swapLanguage();
           this.rerenderKeys();
+        } else if (keyId === 'CapsLock') {
+          const capsState = !this.isCapsed;
+          this.switchOnCaps(capsState, true);
         } else {
           const char = e.target.textContent;
           Keyboard.printSymbol(char);
@@ -215,7 +228,7 @@ export default class Keyboard {
         const keyId = e.target.id.split('-')[1];
         if (keyId === 'ShiftLeft' || keyId === 'ShiftRight') {
           const capsState = !this.isCapsed;
-          this.switchOnCaps(capsState);
+          this.switchOnCaps(capsState, false);
         }
       }
     });
@@ -225,7 +238,7 @@ export default class Keyboard {
         const keyId = e.target.id.split('-')[1];
         if (keyId === 'ShiftLeft' || keyId === 'ShiftRight') {
           const capsState = !this.isCapsed;
-          this.switchOnCaps(capsState);
+          this.switchOnCaps(capsState, false);
         }
       }
     });
@@ -235,22 +248,22 @@ export default class Keyboard {
     window.addEventListener('keydown', (e) => {
       if (e.code === 'CapsLock') {
         const capsState = e.getModifierState('CapsLock');
-        this.switchOnCaps(capsState);
+        this.switchOnCaps(capsState, true);
       }
       if (e.code === 'ShiftLeft' || e.code === 'ShiftRight') {
         const capsState = !this.isCapsed;
-        this.switchOnCaps(capsState);
+        this.switchOnCaps(capsState, false);
       }
     });
 
     window.addEventListener('keyup', (e) => {
       if (e.code === 'CapsLock') {
         const capsState = e.getModifierState('CapsLock');
-        this.switchOnCaps(capsState);
+        this.switchOnCaps(capsState, true);
       }
       if (e.code === 'ShiftLeft' || e.code === 'ShiftRight') {
         const capsState = !this.isCapsed;
-        this.switchOnCaps(capsState);
+        this.switchOnCaps(capsState, false);
       }
     });
   }
