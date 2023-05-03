@@ -3,7 +3,8 @@
 import Key from './Key.js';
 import { set, del } from './utils/storage.js';
 
-const specialButtons = ['Shift', 'shift', 'Meta', 'option', 'Control', 'control', 'Alt', 'command', 'Tab', 'tab', 'Enter', 'return', 'Backspace', 'delete', 'CapsLock', 'caps lock'];
+const specialButtons = ['Shift', 'shift', 'Meta', 'option', 'Control', 'ControlLeft', 'ControlRight', 'control', 'Alt', 'command', 'Tab', 'tab', 'Enter', 'return', 'Backspace', 'delete', 'CapsLock', 'caps lock'];
+const serviceKeyCodes = ['ShiftLeft', 'ShiftRight', 'AltLeft', 'AltRight', 'ControlLeft', 'Control', 'GroupFirst', 'ControlRight', 'MetaLeft', 'MetaRight'];
 
 const lineChars = {
   tab: '\t',
@@ -11,7 +12,7 @@ const lineChars = {
   return: '\n',
   Enter: '\n',
 };
-export const navChars = ['ArrowRight', 'ArrowLeft', 'ArrowUp', 'ArrowDown'];
+const navKeyCodes = ['ArrowRight', 'ArrowLeft', 'ArrowUp', 'ArrowDown'];
 
 export default class Keyboard {
   constructor(layout, lang = 'en') {
@@ -164,17 +165,21 @@ export default class Keyboard {
   listenInput() {
     document.querySelector('#textarea').focus();
     document.addEventListener('keydown', (e) => {
-      console.log(e);
       // make virtual button active
+
       const btn = document.getElementById(`key-${e.code}`);
+      if (btn == null) {
+        return;
+      }
       Keyboard.enableActive(btn);
       /* const textareaEl = document.querySelector("#textarea")
 
     const curPos = textareaEl.selectionStart
     const selectionEnd = textareaEl.selectionEnd */
-      if (!(['ShiftLeft', 'ShiftRight', 'AltLeft', 'AltRight', 'ControlLeft', 'ControlRight', 'MetaLeft', 'MetaRight'].includes(e.key) || e.metaKey || navChars.includes(e.key))) {
+      if (!(serviceKeyCodes.includes(e.code) || e.metaKey || navKeyCodes.includes(e.code))) {
         e.preventDefault();
-        Keyboard.printSymbol(e.key);
+        const char = btn.textContent;
+        Keyboard.printSymbol(char);
       }
       if ((e.code === 'AltLeft' && e.shiftKey) || (e.code === 'ShiftLeft' && e.altKey)) {
         this.swapLanguage();
@@ -182,8 +187,8 @@ export default class Keyboard {
         return;
       }
 
-      if (navChars.includes(e.code)) {
-        this.moveCursor(e.key);
+      if (navKeyCodes.includes(e.code)) {
+        Keyboard.moveCursor(e.code);
       }
       document.querySelector('#textarea').focus();
     });
@@ -199,8 +204,8 @@ export default class Keyboard {
       if (e.target.classList.contains('key')) {
         const keyId = e.target.id.split('-')[1];
         console.log(keyId);
-        if (navChars.includes(keyId)) {
-          this.moveCursor(keyId);
+        if (navKeyCodes.includes(keyId)) {
+          Keyboard.moveCursor(keyId);
           return;
         }
         // move lang change in a separate function
