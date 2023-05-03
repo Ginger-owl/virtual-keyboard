@@ -240,8 +240,8 @@ export default class Keyboard {
 
   listenCaps() {
     window.addEventListener('keydown', (e) => {
-      if (e.code === 'CapsLock') {
-        const capsState = e.getModifierState('CapsLock');
+      if (e.code === 'CapsLock' || e.which === '20') {
+        const capsState = !this.isCapsed;
         this.switchOnCaps(capsState, true);
       }
       if (e.code === 'ShiftLeft' || e.code === 'ShiftRight') {
@@ -251,8 +251,8 @@ export default class Keyboard {
     });
 
     window.addEventListener('keyup', (e) => {
-      if (e.code === 'CapsLock') {
-        const capsState = e.getModifierState('CapsLock');
+      if (e.code === 'CapsLock' || e.which === '20') {
+        const capsState = !this.isCapsed;
         this.switchOnCaps(capsState, true);
       }
       if (e.code === 'ShiftLeft' || e.code === 'ShiftRight') {
