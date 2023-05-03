@@ -176,7 +176,7 @@ export default class Keyboard {
         e.preventDefault();
         Keyboard.printSymbol(e.key);
       }
-      if ((e.code === 'MetaLeft' && e.shiftKey) || (e.code === 'ShiftLeft' && e.metaKey)) {
+      if ((e.code === 'AltLeft' && e.shiftKey) || (e.code === 'ShiftLeft' && e.altKey)) {
         this.swapLanguage();
         this.rerenderKeys();
         return;
@@ -184,12 +184,6 @@ export default class Keyboard {
 
       if (navChars.includes(e.code)) {
         this.moveCursor(e.key);
-      }
-      if (e.ctrlKey && e.key !== 'Meta') {
-        setInterval(() => {
-          const anotherBtn = document.querySelector(`#key-${e.code}`);
-          Keyboard.disableActive(anotherBtn);
-        }, 500);
       }
       document.querySelector('#textarea').focus();
     });

@@ -25,7 +25,7 @@ function createHintEl() {
   const elem = document.createElement('p');
   elem.id = 'hint';
   elem.classList = 'hint';
-  elem.innerHTML = 'Keyboard is based on Mac layouts.<br/>To change layout language press "shift" + "command"(Alt for windows) or click "fn"';
+  elem.innerHTML = 'Keyboard is based on Mac layouts.<br/>To change layout language press "shift" + "option"("alt" for windows/linux) or click "fn"';
   return elem;
 }
 
