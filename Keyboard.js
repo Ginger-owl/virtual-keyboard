@@ -194,6 +194,9 @@ export default class Keyboard {
     });
     document.addEventListener('keyup', (e) => {
       const btn = document.querySelector(`#key-${e.code}`);
+      if (btn == null) {
+        return;
+      }
       Keyboard.disableActive(btn);
     });
   }
