@@ -5,7 +5,8 @@
     },
     "extends": [
         "eslint:recommended",
-        "plugin:react/recommended"
+        "plugin:react/recommended",
+        "airbnb-base"
     ],
     "overrides": [
     ],
@@ -17,5 +18,9 @@
         "react"
     ],
     "rules": {
+      "no-console": 0,
+      "no-empty": 0,
+      "no-irregular-whitespace":0
+
     }
 }
