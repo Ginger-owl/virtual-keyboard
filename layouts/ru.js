@@ -1,258 +1,258 @@
 export default {
-  "Backquote": {
-    "base": "]",
-    "alter": "[",
+  Backquote: {
+    base: ']',
+    alter: '[',
   },
-  "Digit1": {
-    "base": "1",
-    "alter": "!"
+  Digit1: {
+    base: '1',
+    alter: '!',
   },
-  "Digit2": {
-    "base": "2",
-    "alter": "\"",
+  Digit2: {
+    base: '2',
+    alter: '"',
   },
-  "Digit3": {
-    "base": "3",
-    "alter": "№",
+  Digit3: {
+    base: '3',
+    alter: '№',
   },
-  "Digit4": {
-    "base": "4",
-    "alter": "%",
+  Digit4: {
+    base: '4',
+    alter: '%',
   },
-  "Digit5": {
-    "base": "5",
-    "alter": ":",
+  Digit5: {
+    base: '5',
+    alter: ':',
   },
-  "Digit6": {
-    "base": "6",
-    "alter": ","
+  Digit6: {
+    base: '6',
+    alter: ',',
   },
-  "Digit7": {
-    "base": "7",
-    "alter": ".",
+  Digit7: {
+    base: '7',
+    alter: '.',
   },
-  "Digit8": {
-    "base": "8",
-    "alter": ";",
+  Digit8: {
+    base: '8',
+    alter: ';',
   },
-  "Digit9": {
-    "base": "9",
-    "alter": "("
+  Digit9: {
+    base: '9',
+    alter: '(',
   },
-  "Digit0": {
-    "base": "0",
-    "alter": ")"
+  Digit0: {
+    base: '0',
+    alter: ')',
   },
-  "Minus": {
-    "base": "-",
-    "alter": "_"
+  Minus: {
+    base: '-',
+    alter: '_',
   },
-  "Equal": {
-    "base": "=",
-    "alter": "+"
+  Equal: {
+    base: '=',
+    alter: '+',
   },
-  "Backspace": {
-    "base": "delete",
-    "alter": "delete"
+  Backspace: {
+    base: 'delete',
+    alter: 'delete',
   },
-  "Tab": {
-    "base": "tab",
-    "alter": "tab",
+  Tab: {
+    base: 'tab',
+    alter: 'tab',
   },
-  "KeyQ": {
-    "base": "й",
-    "alter": "Й",
+  KeyQ: {
+    base: 'й',
+    alter: 'Й',
   },
-  "KeyW": {
-    "base": "ц",
-    "alter": "Ц",
+  KeyW: {
+    base: 'ц',
+    alter: 'Ц',
   },
-  "KeyE": {
-    "base": "у",
-    "alter": "У",
+  KeyE: {
+    base: 'у',
+    alter: 'У',
   },
-  "KeyR": {
-    "base": "к",
-    "alter": "К",
+  KeyR: {
+    base: 'к',
+    alter: 'К',
   },
-  "KeyT": {
-    "base": "е",
-    "alter": "Е",
+  KeyT: {
+    base: 'е',
+    alter: 'Е',
   },
-  "KeyY": {
-    "base": "н",
-    "alter": "Н",
+  KeyY: {
+    base: 'н',
+    alter: 'Н',
   },
-  "KeyU": {
-    "base": "г",
-    "alter": "Г",
+  KeyU: {
+    base: 'г',
+    alter: 'Г',
   },
-  "KeyI": {
-    "base": "ш",
-    "alter": "Ш",
+  KeyI: {
+    base: 'ш',
+    alter: 'Ш',
   },
-  "KeyO": {
-    "base": "щ",
-    "alter": "Щ",
+  KeyO: {
+    base: 'щ',
+    alter: 'Щ',
   },
-  "KeyP": {
-    "base": "з",
-    "alter": "З",
+  KeyP: {
+    base: 'з',
+    alter: 'З',
   },
-  "BracketLeft": {
-    "base": "х",
-    "alter": "Х",
+  BracketLeft: {
+    base: 'х',
+    alter: 'Х',
   },
-  "BracketRight": {
-    "base": "ъ",
-    "alter": "Ъ",
+  BracketRight: {
+    base: 'ъ',
+    alter: 'Ъ',
   },
-  "Backslash": {
-    "base": "\\",
-    "alter": "|"
+  Backslash: {
+    base: '\\',
+    alter: '|',
   },
-  "CapsLock": {
-    "base": "caps lock",
-    "alter": "caps lock",
+  CapsLock: {
+    base: 'caps lock',
+    alter: 'caps lock',
   },
-  "KeyA": {
-    "base": "ф",
-    "alter": "Ф",
+  KeyA: {
+    base: 'ф',
+    alter: 'Ф',
   },
-  "KeyS": {
-    "base": "ы",
-    "alter": "Ы",
+  KeyS: {
+    base: 'ы',
+    alter: 'Ы',
   },
-  "KeyD": {
-    "base": "в",
-    "alter": "В",
+  KeyD: {
+    base: 'в',
+    alter: 'В',
   },
-  "KeyF": {
-    "base": "а",
-    "alter": "А",
+  KeyF: {
+    base: 'а',
+    alter: 'А',
   },
-  "KeyG": {
-    "base": "п",
-    "alter": "П",
+  KeyG: {
+    base: 'п',
+    alter: 'П',
   },
-  "KeyH": {
-    "base": "р",
-    "alter": "Р",
+  KeyH: {
+    base: 'р',
+    alter: 'Р',
   },
-  "KeyJ": {
-    "base": "о",
-    "alter": "О",
+  KeyJ: {
+    base: 'о',
+    alter: 'О',
   },
-  "KeyK": {
-    "base": "л",
-    "alter": "Л",
+  KeyK: {
+    base: 'л',
+    alter: 'Л',
   },
-  "KeyL": {
-    "base": "д",
-    "alter": "Д",
+  KeyL: {
+    base: 'д',
+    alter: 'Д',
   },
-  "Semicolon": {
-    "base": "ж",
-    "alter": "Ж",
+  Semicolon: {
+    base: 'ж',
+    alter: 'Ж',
   },
-  "Quote": {
-    "base": "э",
-    "alter": "Э",
+  Quote: {
+    base: 'э',
+    alter: 'Э',
   },
-  "Enter": {
-    "base": "return",
-    "alter": "return",
+  Enter: {
+    base: 'return',
+    alter: 'return',
   },
-  "ShiftLeft": {
-    "base": "shift",
-    "alter": "shift",
+  ShiftLeft: {
+    base: 'shift',
+    alter: 'shift',
   },
-  "KeyZ": {
-    "base": "я",
-    "alter": "Я",
+  KeyZ: {
+    base: 'я',
+    alter: 'Я',
   },
-  "KeyX": {
-    "base": "ч",
-    "alter": "Ч",
+  KeyX: {
+    base: 'ч',
+    alter: 'Ч',
   },
-  "KeyC": {
-    "base": "с",
-    "alter": "С",
+  KeyC: {
+    base: 'с',
+    alter: 'С',
   },
-  "KeyV": {
-    "base": "м",
-    "alter": "М",
+  KeyV: {
+    base: 'м',
+    alter: 'М',
   },
-  "KeyB": {
-    "base": "и",
-    "alter": "И",
+  KeyB: {
+    base: 'и',
+    alter: 'И',
   },
-  "KeyN": {
-    "base": "т",
-    "alter": "Т",
+  KeyN: {
+    base: 'т',
+    alter: 'Т',
   },
-  "KeyM": {
-    "base": "ь",
-    "alter": "Ь",
+  KeyM: {
+    base: 'ь',
+    alter: 'Ь',
   },
-  "Comma": {
-    "base": "б",
-    "alter": "Б",
+  Comma: {
+    base: 'б',
+    alter: 'Б',
   },
-  "Period": {
-    "base": "ю",
-    "alter": "Ю",
+  Period: {
+    base: 'ю',
+    alter: 'Ю',
   },
-  "Slash": {
-    "base": "/",
-    "alter": "?",
+  Slash: {
+    base: '/',
+    alter: '?',
   },
-  "ShiftRight": {
-    "base": "shift",
-    "alter": "shift",
+  ShiftRight: {
+    base: 'shift',
+    alter: 'shift',
   },
-  "ControlLeft": {
-    "base": "control",
-    "alter": "control",
+  ControlLeft: {
+    base: 'control',
+    alter: 'control',
   },
-  "AltLeft": {
-    "base": "option",
-    "alter": "option",
+  AltLeft: {
+    base: 'option',
+    alter: 'option',
   },
-  "MetaLeft": {
-    "base": "command",
-    "alter": "command",
+  MetaLeft: {
+    base: 'command',
+    alter: 'command',
   },
-  "Space": {
-    "base": " ",
-    "alter": " ",
+  Space: {
+    base: ' ',
+    alter: ' ',
   },
-  "MetaRight": {
-    "base": "command",
-    "alter": "command",
+  MetaRight: {
+    base: 'command',
+    alter: 'command',
   },
-  "AltRight": {
-    "base": "option",
-    "alter": "option",
+  AltRight: {
+    base: 'option',
+    alter: 'option',
   },
-  "ArrowLeft": {
-    "base": "&larr;",
-    "alter": "&larr;",
+  ArrowLeft: {
+    base: '&larr;',
+    alter: '&larr;',
   },
-  "ArrowUp": {
-    "base": "&uarr;",
-    "alter": "&uarr;",
+  ArrowUp: {
+    base: '&uarr;',
+    alter: '&uarr;',
   },
-  "ArrowDown": {
-    "base": "&darr;",
-    "alter": "&darr;",
+  ArrowDown: {
+    base: '&darr;',
+    alter: '&darr;',
   },
-  "ArrowRight": {
-    "base": "&rarr;",
-    "alter": "&rarr;",
+  ArrowRight: {
+    base: '&rarr;',
+    alter: '&rarr;',
   },
-  "Fn": {
-    "base": "fn",
-    "alter": "fn",
-  }
-}
+  Fn: {
+    base: 'fn',
+    alter: 'fn',
+  },
+};
