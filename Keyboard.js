@@ -37,7 +37,7 @@ export default class Keyboard {
     return `<div id="keyboard" class="keyboard">${keyboardRowsHtml.join('')}</div>`;
   }
 
-  swapLanguage = () => {
+  swapLanguage() {
     del('lang');
     if (this.lang === 'en') {
       this.lang = 'ru';
@@ -45,9 +45,9 @@ export default class Keyboard {
       this.lang = 'en';
     }
     set('lang', this.lang);
-  };
+  }
 
-  switchOnCaps = (capsState, isCapsPressed) => {
+  switchOnCaps(capsState, isCapsPressed) {
     if (isCapsPressed) {
       const capsBtn = document.getElementById('key-CapsLock');
       if (capsState) {
@@ -67,7 +67,7 @@ export default class Keyboard {
         key.innerHTML = key.dataset.base;
       }
     });
-  };
+  }
 
   render() {
     document.body.insertAdjacentHTML('beforeend', this.currentKeyboard);
@@ -206,13 +206,16 @@ export default class Keyboard {
     keyboard.addEventListener('click', (e) => {
       if (e.target.classList.contains('key')) {
         const keyId = e.target.id.split('-')[1];
-        console.log(keyId);
         if (navKeyCodes.includes(keyId)) {
           Keyboard.moveCursor(keyId);
           return;
         }
         // move lang change in a separate function
-        if (keyId === 'Fn') {
+        if (
+          ((keyId === 'AltLeft' || keyId === 'AltRight') && e.shiftKey === true)
+          || ((keyId === 'ShiftLeft' || keyId === 'ShiftRight') && e.altKey === true)
+          || keyId === 'Fn'
+        ) {
           this.swapLanguage();
           this.rerenderKeys();
         } else if (keyId === 'CapsLock') {
