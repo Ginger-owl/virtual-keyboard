@@ -49,11 +49,13 @@
   flex-direction: column;
   margin: 16px auto 0;
   padding: 6px 12px 0;
-  background: #535353;
+  background: #2d2b2b;
   width: fit-content;
   border-radius: 4px;
   border: 2px solid orange;
-  outline: 4px solid #535353;
+  outline: 6px solid #2d2b2b;
+  transform: rotateX(16deg);
+  box-shadow: 0px 8px 5px 6px black, 0px 10px 18px 10px #313131;
 }
 
 .keyboard__row {
@@ -69,59 +71,56 @@
   position: relative;
   width: 50px;
   height: 50px;
-  background-color: #2d2d2d;
-  border: 1px solid #2d2d2d;
+  background-color: #292929;
+  border: 1px solid #292929;
   border-radius: 6px;
   color: #cfcfcf;
-  box-shadow: 0px 2px 2px 2px black;
+  box-shadow: 0px 3px 5px 3px black;
   font: inherit;
   font-size: 11px;
   transition: all .2s ease-in-out;
 }
 
 .key:hover {
-  background-color: #3a3a3a;
+  background-color: #313131;
   transform: translateY(1px);
-  box-shadow: 0px 2px 2px 1px black;
+  box-shadow: 0px 3px 5px 2px black;
 }
 
 .key:active,
 .key-active,
 .key-active:hover {
-  color: #a19f9f;
-  background-color: #535353;
+  color: #c5c3c3;
+  background: #333333;
   transform: translateY(3px);
-  box-shadow: 0px 1px 2px 0px black;
-  /* transition: all .2s ease-in-out; */
+  box-shadow: 0px 3px 5px 2px black;
 }
 
 .key-caps::before {
   content: "";
   position: absolute;
-  top: 5px;
-  right: 5px;
-  background-color: rgb(76, 76, 76);
-  width: 10px;
-  height: 10px;
+  top: 7px;
+  left: 5px;
+  background-color: #4c4c4c;
+  width: 7px;
+  height: 7px;
   border-radius: 50%;
-  /* transition: all .2s ease-in-out; */
 }
 
 .key-active.key-caps {
   background-color: #2d2d2d;
   transform: translateY(0px);
   box-shadow: 0px 2px 2px 2px black;
-  /* transition: all .2s ease-in-out; */
-  animation: btnpress .25s forwards;
+  animation: keypress .25s forwards;
 }
 
 .key-inactive.key-caps {
-  animation: btnunpress .25s forwards;
+  animation: keyunpress .25s forwards;
 }
 
 .key-active.key-caps::before {
-  background-color: rgb(0, 155, 0);
-  box-shadow: 0px 0px 20px 5px #009b0082;
+  background-color: #0bc50b;
+  box-shadow: 0px 0px 15px 5px #009b0082;
   color: #cfcfcf;
 }
 
@@ -155,40 +154,42 @@
   width: 288px;
 }
 
-@keyframes btnpress {
+@keyframes keypress {
   0% {
-    background-color: #3a3a3a;
+    background-color: #313131;
     transform: translateY(1px);
-    box-shadow: 0px 2px 2px 1px black;
+    box-shadow: 0px 3px 5px 2px black;
   }
   50% {
-    background-color: #535353;
+    color: #c5c3c3;
+    background: #333333;
     transform: translateY(3px);
-    box-shadow: 0px 1px 2px 0px black;
+    box-shadow: 0px 3px 5px 2px black;
   }
   100% {
     color: #cfcfcf;
-    background-color: #2d2d2d;
+    background-color: #292929;
     transform: translateY(0px);
-    box-shadow: 0px 2px 2px 2px black;
+    box-shadow: 0px 4px 4px 3px black;
   }
 }
 
-@keyframes btnunpress {
+@keyframes keyunpress {
   0% {
-    background-color: #3a3a3a;
+    background-color: #313131;
     transform: translateY(1px);
-    box-shadow: 0px 2px 2px 1px black;
+    box-shadow: 0px 3px 5px 2px black;
   }
   50% {
-    background-color: #535353;
+    color: #c5c3c3;
+    background: #333333;
     transform: translateY(3px);
-    box-shadow: 0px 1px 2px 0px black;
+    box-shadow: 0px 3px 5px 2px black;
   }
   100% {
     color: #cfcfcf;
-    background-color: #2d2d2d;
+    background-color: #222222;
     transform: translateY(0px);
-    box-shadow: 0px 2px 2px 2px black;
+    box-shadow: 0px 4px 4px 3px black;
   }
 }
